@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TalentForge | Manufacturing Talent Intelligence</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1A3A5F;
+            --secondary: #6C757D;
+            --accent: #FF6B35;
+            --light: #F8F9FA;
+            --dark: #343A40;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-weight: 700;
+        }
+        
+        .navbar {
+            background-color: var(--primary);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(26, 58, 95, 0.8), rgba(26, 58, 95, 0.9)), url('https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 6rem 0;
+        }
+        
+        .btn-primary {
+            background-color: var(--accent);
+            border-color: var(--accent);
+        }
+        
+        .btn-primary:hover {
+            background-color: #e55a2b;
+            border-color: #e55a2b;
+        }
+        
+        .btn-outline-primary {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--accent);
+            border-color: var(--accent);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        
+        .card {
+            border: none;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .upload-area {
+            background-color: white;
+            border: 2px dashed var(--secondary);
+            border-radius: 5px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .upload-area:hover {
+            border-color: var(--accent);
+        }
+        
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 2rem 0;
+        }
+        
+        .progress {
+            height: 10px;
+        }
+        
+        #uploadProgressContainer {
+            display: none;
+        }
+        
+        .success-message {
+            display: none;
+            color: #28a745;
+        }
+        
+        .upload-history {
+            margin-top: 2rem;
+            display: none;
+        }
+        
+        .sample-file-link {
+            color: var(--accent);
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        
+        .error-message {
+            display: none;
+            color: #dc3545;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">TalentForge</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#upload">Data Upload</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#dashboard">Dashboard</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container text-center">
+            <h1 class="display-4 mb-4">Transform Manufacturing Talent from Liability to Strategic Advantage</h1>
+            <p class="lead mb-5">AI-Powered Talent Intelligence for Manufacturing Leaders</p>
+            <div class="d-grid gap-2 d-md-block">
+                <a href="#upload" class="btn btn-primary btn-lg px-4 me-md-2">Upload Your Data</a>
+                <a href="#dashboard" class="btn btn-outline-light btn-lg px-4">Access Dashboard</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-4 mb-4">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Predictive Analytics</h3>
+                    <p>Forecast future skills needs and potential talent gaps before they impact operations.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3>Retention Intelligence</h3>
+                    <p>Identify flight risks and implement targeted retention strategies for critical talent.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="feature-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Workforce Simulation</h3>
+                    <p>Test talent strategies in a virtual environment before implementing them in your organization.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upload Section -->
+    <section id="upload" class="py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 text-center mb-5">
+                    <h2>Upload Your Data</h2>
+                    <p class="lead">Securely upload your employee data and job requirements to get started with TalentForge.</p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-body p-4">
+                            <ul class="nav nav-tabs mb-4" id="uploadTabs" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="employee-tab" data-bs-toggle="tab" data-bs-target="#employee" type="button" role="tab">Employee Data</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="job-tab" data-bs-toggle="tab" data-bs-target="#job" type="button" role="tab">Job Requirements</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="candidate-tab" data-bs-toggle="tab" data-bs-target="#candidate" type="button" role="tab">Candidates</button>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="uploadTabsContent">
+                                <div class="tab-pane fade show active" id="employee" role="tabpanel">
+                                    <div class="upload-area" id="employeeUploadArea">
+                                        <i class="fas fa-cloud-upload-alt fa-3x mb-3 text-secondary"></i>
+                                        <h4>Drag & Drop Employee Data File</h4>
+                                        <p class="text-muted">or click to browse your files</p>
+                                        <input type="file" id="employeeFileInput" class="d-none" accept=".csv,.xlsx,.xls">
+                                        <small class="d-block mt-3">Accepted formats: CSV, XLSX (max 10MB)</small>
+                                        <div class="mt-3">
+                                            <span class="sample-file-link" id="employeeSampleLink">Download sample template</span>
+                                        </div>
+                                    </div>
+                                    <div id="employeeUploadProgressContainer" class="mt-4" style="display: none;">
+                                        <div class="d-flex justify-content-between mb-1">
+                                            <span>Uploading...</span>
+                                            <span id="employeeUploadPercentage">0%</span>
+                                        </div>
+                                        <div class="progress">
+                                            <div id="employeeUploadProgressBar" class="progress-bar bg-success" role="progressbar" style="width: 0%"></div>
+                                        </div>
+                                    </div>
+                                    <div id="employeeSuccessMessage" class="mt-4 success-message">
+                                        <i class="fas fa-check-circle me-2"></i> Employee data uploaded successfully!
+                                    </div>
+                                    <div id="employeeErrorMessage" class="mt-4 error-message">
+                                        <i class="fas fa-exclamation-circle me-2"></i> <span id="employeeErrorText">Error uploading data.</span>
+                                    </div>
+                                    <div id="employeeUploadHistory" class="upload-history">
+                                        <h5 class="mt-4">Upload History</h5>
+                                        <div class="table-responsive">
+                                            <table class="table table-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <th>File Name</th>
+                                                        <th>Size</th>
+                                                        <th>Date</th>
+                                                        <th>Status</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="employeeHistoryBody">
+                                                    <!-- History will be populated by JavaScript -->
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="job" role="tabpanel">
+                                    <div class="upload-area" id="jobUploadArea">
+                                        <i class="fas fa-cloud-upload-alt fa-3x mb-3 text-secondary"></i>
+                                        <h4>Drag & Drop Job Requirements File</h4>
+                                        <p class="text-muted">or click to browse your files</p>
+                                        <input type="file" id="jobFileInput" class="d-none" accept=".csv,.xlsx,.xls">
+                                        <small class="d-block mt-3">Accepted formats: CSV, XLSX (max 10MB)</small>
+                                        <div class="mt-3">
+                                            <span class="sample-file-link" id="jobSampleLink">Download sample template</span>
+                                        </div>
+                                    </div>
+                                    <div id="jobUploadProgressContainer" class="mt-4" style="display: none;">
+                                        <div class="d-flex justify-content-between mb-1">
+                                            <span>Uploading...</span>
+                                            <span id="jobUploadPercentage">0%</span>
+                                        </div>
+                                        <div class="progress">
+                                            <div id="jobUploadProgressBar" class="progress-bar bg-success" role="progressbar" style="width: 0%"></div>
+                                        </div>
+                                    </div>
+                                    <div id="jobSuccessMessage" class="mt-4 success-message">
+                                        <i class="fas fa-check-circle me-2"></i> Job requirements uploaded successfully!
+                                    </div>
+                                    <div id="jobErrorMessage" class="mt-4 error-message">
+                                        <i class="fas fa-exclamation-circle me-2"></i> <span id="jobErrorText">Error uploading data.</span>
+                                    </div>
+                                    <div id="jobUploadHistory" class="upload-history">
+                                        <h5 class="mt-4">Upload History</h5>
+                                        <div class="table-responsive">
+                                            <table class="table table-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <th>File Name</th>
+                                                        <th>Size</th>
+                                                        <th>Date</th>
+                                                        <th>Status</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="jobHistoryBody">
+                                                    <!-- History will be populated by JavaScript -->
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="candidate" role="tabpanel">
+                                    <div class="upload-area" id="candidateUploadArea">
+                                        <i class="fas fa-cloud-upload-alt fa-3x mb-3 text-secondary"></i>
+                                        <h4>Drag & Drop Candidate Data File</h4>
+                                        <p class="text-muted">or click to browse your files</p>
+                                        <input type="file" id="candidateFileInput" class="d-none" accept=".csv,.xlsx,.xls">
+                                        <small class="d-block mt-3">Accepted formats: CSV, XLSX (max 10MB)</small>
+                                        <div class="mt-3">
+                                            <span class="sample-file-link" id="candidateSampleLink">Download sample template</span>
+                                        </div>
+                                    </div>
+                                    <div id="candidateUploadProgressContainer" class="mt-4" style="display: none;">
+                                        <div class="d-flex justify-content-between mb-1">
+                                            <span>Uploading...</span>
+                                            <span id="candidateUploadPercentage">0%</span>
+                                        </div>
+                                        <div class="progress">
+                                            <div id="candidateUploadProgressBar" class="progress-bar bg-success" role="progressbar" style="width: 0%"></div>
+                                        </div>
+                                    </div>
+                                    <div id="candidateSuccessMessage" class="mt-4 success-message">
+                                        <i class="fas fa-check-circle me-2"></i> Candidate data uploaded successfully!
+                                    </div>
+                                    <div id="candidateErrorMessage" class="mt-4 error-message">
+                                        <i class="fas fa-exclamation-circle me-2"></i> <span id="candidateErrorText">Error uploading data.</span>
+                                    </div>
+                                    <div id="candidateUploadHistory" class="upload-history">
+                                        <h5 class="mt-4">Upload History</h5>
+                                        <div class="table-responsive">
+                                            <table class="table table-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <th>File Name</th>
+                                                        <th>Size</th>
+                                                        <th>Date</th>
+                                                        <th>Status</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="candidateHistoryBody">
+                                                    <!-- History will be populated by JavaScript -->
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 text-center mb-5">
+                    <h2>Access Your Dashboard</h2>
+                    <p class="lead">View your talent analytics and insights through our interactive dashboard.</p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-body p-4 text-center">
+                            <h3 class="mb-4">Your TalentForge Dashboard is Ready</h3>
+                            <p>Access your interactive talent intelligence dashboard to view insights, predictions, and recommendations.</p>
+                            <a href="#" class="btn btn-primary btn-lg mt-3">Launch Dashboard</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h4>TalentForge</h4>
+                    <p>Transforming manufacturing talent management through AI-powered intelligence.</p>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h4>Contact</h4>
+                    <p>Email: info@talentforge.com<br>Phone: +1 (555) 123-4567</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>Follow Us</h4>
+                    <div class="d-flex">
+                        <a href="#" class="me-3 text-white"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="#" class="me-3 text-white"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-facebook fa-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-12 text-center">
+                    <p class="mb-0">© 2025 TalentForge. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Airtable Integration -->
+    <script src="airtable-integration.js"></script>
+    <!-- Main Script -->
+    <script src="script.js"></script>
+</body>
+</html>
