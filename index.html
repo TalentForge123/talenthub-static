@@ -79,54 +79,10 @@
             transform: translateY(-5px);
         }
         
-        .upload-area {
-            background-color: white;
-            border: 2px dashed var(--secondary);
-            border-radius: 5px;
-            padding: 2rem;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .upload-area:hover {
-            border-color: var(--accent);
-        }
-        
         footer {
             background-color: var(--primary);
             color: white;
             padding: 2rem 0;
-        }
-        
-        .progress {
-            height: 10px;
-        }
-        
-        #uploadProgressContainer {
-            display: none;
-        }
-        
-        .success-message {
-            display: none;
-            color: #28a745;
-        }
-        
-        .upload-history {
-            margin-top: 2rem;
-            display: none;
-        }
-        
-        .sample-file-link {
-            color: var(--accent);
-            text-decoration: underline;
-            cursor: pointer;
-        }
-        
-        .error-message {
-            display: none;
-            color: #dc3545;
-            margin-top: 1rem;
         }
         
         .softr-banner {
@@ -137,31 +93,34 @@
             border-left: 5px solid var(--accent);
         }
         
-        .softr-link {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.2s;
-        }
-        
-        .softr-link:hover {
-            color: #e55a2b;
-            text-decoration: underline;
-        }
-        
-        .softr-button {
+        .cta-button {
+            display: inline-block;
             background-color: var(--accent);
             color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
             font-weight: 600;
-            transition: all 0.2s;
+            padding: 12px 24px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: all 0.3s;
+            margin-top: 10px;
         }
         
-        .softr-button:hover {
+        .cta-button:hover {
             background-color: #e55a2b;
+            color: white;
             transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .feature-card {
+            padding: 2rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .feature-card .btn {
+            margin-top: auto;
         }
     </style>
 </head>
@@ -179,10 +138,13 @@
                         <a class="nav-link active" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#upload">Data Upload</a>
+                        <a class="nav-link" href="https://erick39226.preview.softr.app/employee-view" target="_blank">Employee Data</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link softr-link" href="https://erick39226.preview.softr.app/" target="_blank">Full Platform</a>
+                        <a class="nav-link" href="https://erick39226.preview.softr.app/candidate-landing-page" target="_blank">Candidates</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://erick39226.preview.softr.app/manager-dashboard-copy" target="_blank">Dashboard</a>
                     </li>
                 </ul>
             </div>
@@ -195,8 +157,25 @@
             <h1 class="display-4 mb-4">Transform Manufacturing Talent from Liability to Strategic Advantage</h1>
             <p class="lead mb-5">AI-Powered Talent Intelligence for Manufacturing Leaders</p>
             <div class="d-grid gap-2 d-md-block">
-                <a href="#upload" class="btn btn-primary btn-lg px-4 me-md-2">Upload Your Data</a>
-                <a href="https://erick39226.preview.softr.app/" target="_blank" class="btn btn-outline-light btn-lg px-4">Access Full Platform</a>
+                <a href="https://erick39226.preview.softr.app/" target="_blank" class="btn btn-primary btn-lg px-4 me-md-2">Access TalentForge Platform</a>
+                <a href="https://erick39226.preview.softr.app/manager-dashboard-copy" target="_blank" class="btn btn-outline-light btn-lg px-4">View Dashboard</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Platform Banner -->
+    <section class="py-4">
+        <div class="container">
+            <div class="softr-banner">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h3 class="mb-2">Ready to Transform Your Talent Management?</h3>
+                        <p class="mb-0">Access our full platform with advanced analytics, dashboards, and AI-powered insights.</p>
+                    </div>
+                    <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                        <a href="https://erick39226.preview.softr.app/" target="_blank" class="cta-button">Launch TalentForge Platform</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -204,229 +183,41 @@
     <!-- Features Section -->
     <section class="py-5">
         <div class="container">
-            <div class="row text-center">
-                <div class="col-md-4 mb-4">
-                    <div class="feature-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Predictive Analytics</h3>
-                    <p>Forecast future skills needs and potential talent gaps before they impact operations.</p>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="feature-icon">
-                        <i class="fas fa-user-shield"></i>
-                    </div>
-                    <h3>Retention Intelligence</h3>
-                    <p>Identify flight risks and implement targeted retention strategies for critical talent.</p>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="feature-icon">
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <h3>Workforce Simulation</h3>
-                    <p>Test talent strategies in a virtual environment before implementing them in your organization.</p>
+            <div class="row text-center mb-5">
+                <div class="col-12">
+                    <h2>Talent Intelligence for Manufacturing</h2>
+                    <p class="lead">Access powerful tools designed specifically for manufacturing talent management</p>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <!-- Softr Platform Banner -->
-    <section class="py-3">
-        <div class="container">
-            <div class="softr-banner">
-                <div class="row align-items-center">
-                    <div class="col-md-8">
-                        <h4>Access the Full TalentForge Platform</h4>
-                        <p class="mb-0">For complete talent management features, use our full platform with advanced analytics, dashboards, and reporting.</p>
-                    </div>
-                    <div class="col-md-4 text-md-end mt-3 mt-md-0">
-                        <a href="https://erick39226.preview.softr.app/" target="_blank" class="btn btn-primary">Go to Full Platform</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Upload Section -->
-    <section id="upload" class="py-5 bg-light">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-8 text-center mb-5">
-                    <h2>Upload Your Data</h2>
-                    <p class="lead">Securely upload your employee data and job requirements to get started with TalentForge.</p>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <div class="card">
-                        <div class="card-body p-4">
-                            <ul class="nav nav-tabs mb-4" id="uploadTabs" role="tablist">
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link active" id="employee-tab" data-bs-toggle="tab" data-bs-target="#employee" type="button" role="tab">Employee Data</button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="job-tab" data-bs-toggle="tab" data-bs-target="#job" type="button" role="tab">Job Requirements</button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="candidate-tab" data-bs-toggle="tab" data-bs-target="#candidate" type="button" role="tab">Candidates</button>
-                                </li>
-                            </ul>
-                            <div class="tab-content" id="uploadTabsContent">
-                                <div class="tab-pane fade show active" id="employee" role="tabpanel">
-                                    <div class="upload-area" id="employeeUploadArea">
-                                        <i class="fas fa-cloud-upload-alt fa-3x mb-3 text-secondary"></i>
-                                        <h4>Drag & Drop Employee Data File</h4>
-                                        <p class="text-muted">or click to browse your files</p>
-                                        <input type="file" id="employeeFileInput" class="d-none" accept=".csv,.xlsx,.xls">
-                                        <small class="d-block mt-3">Accepted formats: CSV, XLSX (max 10MB)</small>
-                                        <div class="mt-3">
-                                            <span class="sample-file-link" id="employeeSampleLink">Download sample template</span>
-                                        </div>
-                                    </div>
-                                    <div id="employeeUploadProgressContainer" class="mt-4" style="display: none;">
-                                        <div class="d-flex justify-content-between mb-1">
-                                            <span>Uploading...</span>
-                                            <span id="employeeUploadPercentage">0%</span>
-                                        </div>
-                                        <div class="progress">
-                                            <div id="employeeUploadProgressBar" class="progress-bar bg-success" role="progressbar" style="width: 0%"></div>
-                                        </div>
-                                    </div>
-                                    <div id="employeeSuccessMessage" class="mt-4 success-message">
-                                        <i class="fas fa-check-circle me-2"></i> Employee data uploaded successfully!
-                                    </div>
-                                    <div id="employeeErrorMessage" class="mt-4 error-message">
-                                        <i class="fas fa-exclamation-circle me-2"></i> <span id="employeeErrorText">Error uploading data.</span>
-                                    </div>
-                                    <div id="employeeUploadHistory" class="upload-history">
-                                        <h5 class="mt-4">Upload History</h5>
-                                        <div class="table-responsive">
-                                            <table class="table table-sm">
-                                                <thead>
-                                                    <tr>
-                                                        <th>File Name</th>
-                                                        <th>Size</th>
-                                                        <th>Date</th>
-                                                        <th>Status</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody id="employeeHistoryBody">
-                                                    <!-- History will be populated by JavaScript -->
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Softr Alternative -->
-                                    <div class="mt-4 p-3 bg-light rounded">
-                                        <p><strong>Having trouble with the upload?</strong> Use our full platform instead:</p>
-                                        <a href="https://erick39226.preview.softr.app/employee-view" target="_blank" class="btn btn-sm btn-primary">Go to Employee Management</a>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="job" role="tabpanel">
-                                    <div class="upload-area" id="jobUploadArea">
-                                        <i class="fas fa-cloud-upload-alt fa-3x mb-3 text-secondary"></i>
-                                        <h4>Drag & Drop Job Requirements File</h4>
-                                        <p class="text-muted">or click to browse your files</p>
-                                        <input type="file" id="jobFileInput" class="d-none" accept=".csv,.xlsx,.xls">
-                                        <small class="d-block mt-3">Accepted formats: CSV, XLSX (max 10MB)</small>
-                                        <div class="mt-3">
-                                            <span class="sample-file-link" id="jobSampleLink">Download sample template</span>
-                                        </div>
-                                    </div>
-                                    <div id="jobUploadProgressContainer" class="mt-4" style="display: none;">
-                                        <div class="d-flex justify-content-between mb-1">
-                                            <span>Uploading...</span>
-                                            <span id="jobUploadPercentage">0%</span>
-                                        </div>
-                                        <div class="progress">
-                                            <div id="jobUploadProgressBar" class="progress-bar bg-success" role="progressbar" style="width: 0%"></div>
-                                        </div>
-                                    </div>
-                                    <div id="jobSuccessMessage" class="mt-4 success-message">
-                                        <i class="fas fa-check-circle me-2"></i> Job requirements uploaded successfully!
-                                    </div>
-                                    <div id="jobErrorMessage" class="mt-4 error-message">
-                                        <i class="fas fa-exclamation-circle me-2"></i> <span id="jobErrorText">Error uploading data.</span>
-                                    </div>
-                                    <div id="jobUploadHistory" class="upload-history">
-                                        <h5 class="mt-4">Upload History</h5>
-                                        <div class="table-responsive">
-                                            <table class="table table-sm">
-                                                <thead>
-                                                    <tr>
-                                                        <th>File Name</th>
-                                                        <th>Size</th>
-                                                        <th>Date</th>
-                                                        <th>Status</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody id="jobHistoryBody">
-                                                    <!-- History will be populated by JavaScript -->
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Softr Alternative -->
-                                    <div class="mt-4 p-3 bg-light rounded">
-                                        <p><strong>Having trouble with the upload?</strong> Use our full platform instead:</p>
-                                        <a href="https://erick39226.preview.softr.app/admin-view" target="_blank" class="btn btn-sm btn-primary">Go to Job Management</a>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="candidate" role="tabpanel">
-                                    <div class="upload-area" id="candidateUploadArea">
-                                        <i class="fas fa-cloud-upload-alt fa-3x mb-3 text-secondary"></i>
-                                        <h4>Drag & Drop Candidate Data File</h4>
-                                        <p class="text-muted">or click to browse your files</p>
-                                        <input type="file" id="candidateFileInput" class="d-none" accept=".csv,.xlsx,.xls">
-                                        <small class="d-block mt-3">Accepted formats: CSV, XLSX (max 10MB)</small>
-                                        <div class="mt-3">
-                                            <span class="sample-file-link" id="candidateSampleLink">Download sample template</span>
-                                        </div>
-                                    </div>
-                                    <div id="candidateUploadProgressContainer" class="mt-4" style="display: none;">
-                                        <div class="d-flex justify-content-between mb-1">
-                                            <span>Uploading...</span>
-                                            <span id="candidateUploadPercentage">0%</span>
-                                        </div>
-                                        <div class="progress">
-                                            <div id="candidateUploadProgressBar" class="progress-bar bg-success" role="progressbar" style="width: 0%"></div>
-                                        </div>
-                                    </div>
-                                    <div id="candidateSuccessMessage" class="mt-4 success-message">
-                                        <i class="fas fa-check-circle me-2"></i> Candidate data uploaded successfully!
-                                    </div>
-                                    <div id="candidateErrorMessage" class="mt-4 error-message">
-                                        <i class="fas fa-exclamation-circle me-2"></i> <span id="candidateErrorText">Error uploading data.</span>
-                                    </div>
-                                    <div id="candidateUploadHistory" class="upload-history">
-                                        <h5 class="mt-4">Upload History</h5>
-                                        <div class="table-responsive">
-                                            <table class="table table-sm">
-                                                <thead>
-                                                    <tr>
-                                                        <th>File Name</th>
-                                                        <th>Size</th>
-                                                        <th>Date</th>
-                                                        <th>Status</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody id="candidateHistoryBody">
-                                                    <!-- History will be populated by JavaScript -->
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Softr Alternative -->
-                                    <div class="mt-4 p-3 bg-light rounded">
-                                        <p><strong>Having trouble with the upload?</strong> Use our full platform instead:</p>
-                                        <a href="https://erick39226.preview.softr.app/candidate-landing-page" target="_blank" class="btn btn-sm btn-primary">Go to Candidate Management</a>
-                                    </div>
-                                </div>
-                            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
                         </div>
+                        <h3>Predictive Analytics</h3>
+                        <p>Forecast future skills needs and potential talent gaps before they impact operations.</p>
+                        <a href="https://erick39226.preview.softr.app/admin-view" target="_blank" class="btn btn-primary mt-3">Access Analytics</a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <h3>Retention Intelligence</h3>
+                        <p>Identify flight risks and implement targeted retention strategies for critical talent.</p>
+                        <a href="https://erick39226.preview.softr.app/employee-view" target="_blank" class="btn btn-primary mt-3">Manage Employees</a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>Workforce Simulation</h3>
+                        <p>Test talent strategies in a virtual environment before implementing them in your organization.</p>
+                        <a href="https://erick39226.preview.softr.app/manager-dashboard-copy" target="_blank" class="btn btn-primary mt-3">View Dashboard</a>
                     </div>
                 </div>
             </div>
@@ -434,7 +225,7 @@
     </section>
 
     <!-- Dashboard Section -->
-    <section id="dashboard" class="py-5">
+    <section class="py-5 bg-light">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8 text-center mb-5">
@@ -450,6 +241,78 @@
                             <h3 class="mb-4">Talent Intelligence Dashboard</h3>
                             <p>Access your full dashboard with talent analytics, predictive insights, and strategic recommendations.</p>
                             <a href="https://erick39226.preview.softr.app/manager-dashboard-copy" target="_blank" class="btn btn-primary btn-lg mt-3">Go to Dashboard</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Employee Management Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <h2>Employee Data Management</h2>
+                    <p class="lead">Efficiently manage your employee data, skills, and performance metrics.</p>
+                    <p>Our platform provides comprehensive tools for tracking employee development, identifying skill gaps, and planning career progression paths.</p>
+                    <a href="https://erick39226.preview.softr.app/employee-view" target="_blank" class="btn btn-primary">Manage Employee Data</a>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body p-4 text-center">
+                            <i class="fas fa-users fa-4x mb-4 text-primary"></i>
+                            <h3 class="mb-3">Employee Management</h3>
+                            <p>Access detailed employee profiles, performance data, and development plans.</p>
+                            <a href="https://erick39226.preview.softr.app/employee-view" target="_blank" class="btn btn-outline-primary mt-2">View Employees</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Candidate Management Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 order-md-2 mb-4 mb-md-0">
+                    <h2>Candidate Assessment</h2>
+                    <p class="lead">Streamline your recruitment process with data-driven candidate assessment.</p>
+                    <p>Evaluate candidates based on skills, experience, and cultural fit to make informed hiring decisions that align with your manufacturing talent needs.</p>
+                    <a href="https://erick39226.preview.softr.app/candidate-landing-page" target="_blank" class="btn btn-primary">Manage Candidates</a>
+                </div>
+                <div class="col-md-6 order-md-1">
+                    <div class="card">
+                        <div class="card-body p-4 text-center">
+                            <i class="fas fa-user-plus fa-4x mb-4 text-primary"></i>
+                            <h3 class="mb-3">Candidate Portal</h3>
+                            <p>Track applications, schedule interviews, and evaluate candidate qualifications.</p>
+                            <a href="https://erick39226.preview.softr.app/candidate-landing-page" target="_blank" class="btn btn-outline-primary mt-2">View Candidates</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admin Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 text-center mb-5">
+                    <h2>Administrative Tools</h2>
+                    <p class="lead">Configure your TalentForge platform and manage user access.</p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body p-4 text-center">
+                            <i class="fas fa-cog fa-4x mb-4 text-primary"></i>
+                            <h3 class="mb-4">Admin Portal</h3>
+                            <p>Access administrative tools to configure your TalentForge platform, manage users, and customize settings.</p>
+                            <a href="https://erick39226.preview.softr.app/admin-view" target="_blank" class="btn btn-primary mt-3">Access Admin Portal</a>
                         </div>
                     </div>
                 </div>
@@ -489,7 +352,5 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="airtable-integration.js"></script>
-    <script src="script.js"></script>
 </body>
 </html>
