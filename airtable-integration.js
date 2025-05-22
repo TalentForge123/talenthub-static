@@ -7,8 +7,8 @@ const AIRTABLE_CONFIG = {
     token: 'patFrsj6Ns3iL2UCU.de3d865692e68079e68f7c2069c39cd258353537312266d8f4c57a9db324d209',  // Personal access token
     tables: {
         candidates: 'tblgZkmfZsq40VtxV',  // Candidates table ID
-        employees: 'tblEmployees',  // Placeholder for Employees table ID
-        jobs: 'tblJobs'  // Placeholder for Jobs table ID
+        employees: 'tblgZkmfZsq40VtxV',  // Using candidates table for employees temporarily
+        jobs: 'tblgZkmfZsq40VtxV'  // Using candidates table for jobs temporarily
     }
 };
 
@@ -18,6 +18,7 @@ class AirtableClient {
         this.baseId = config.baseId;
         this.token = config.token;
         this.tables = config.tables;
+        this.proxyUrl = 'https://cors-anywhere.herokuapp.com/'; // CORS proxy (optional)
     }
 
     // Send data to Airtable
@@ -27,9 +28,15 @@ class AirtableClient {
         }
 
         const tableId = this.tables[tableName];
-        const url = `https://api.airtable.com/v0/${this.baseId}/${tableId}`;
+        let url = `https://api.airtable.com/v0/${this.baseId}/${tableId}`;
+        
+        // Uncomment the next line if CORS is an issue
+        // url = this.proxyUrl + url;
 
         try {
+            console.log(`Sending data to Airtable table: ${tableName}`);
+            console.log('Records:', JSON.stringify(records).substring(0, 200) + '...');
+            
             const response = await fetch(url, {
                 method: 'POST',
                 headers: {
@@ -39,14 +46,29 @@ class AirtableClient {
                 body: JSON.stringify({ records })
             });
 
+            const responseText = await response.text();
+            console.log('Airtable API response:', responseText);
+            
             if (!response.ok) {
-                const errorData = await response.json();
-                throw new Error(`Airtable API error: ${errorData.error?.message || response.statusText}`);
+                let errorMessage = 'Unknown error';
+                try {
+                    const errorData = JSON.parse(responseText);
+                    errorMessage = errorData.error?.message || response.statusText;
+                } catch (e) {
+                    errorMessage = responseText || response.statusText;
+                }
+                throw new Error(`Airtable API error: ${errorMessage}`);
             }
 
-            return await response.json();
+            return JSON.parse(responseText);
         } catch (error) {
             console.error('Error sending data to Airtable:', error);
+            
+            // Check if it's a CORS error
+            if (error.message.includes('CORS') || error.message.includes('Cross-Origin')) {
+                console.error('CORS error detected. Try using a CORS proxy or server-side implementation.');
+            }
+            
             throw error;
         }
     }
@@ -59,6 +81,9 @@ class AirtableClient {
 
         const tableId = this.tables[tableName];
         let url = `https://api.airtable.com/v0/${this.baseId}/${tableId}`;
+
+        // Uncomment the next line if CORS is an issue
+        // url = this.proxyUrl + url;
 
         // Add query parameters if provided
         if (options.fields || options.filterByFormula || options.maxRecords || options.sort) {
@@ -89,6 +114,8 @@ class AirtableClient {
         }
 
         try {
+            console.log(`Getting data from Airtable table: ${tableName}`);
+            
             const response = await fetch(url, {
                 method: 'GET',
                 headers: {
@@ -96,25 +123,45 @@ class AirtableClient {
                 }
             });
 
+            const responseText = await response.text();
+            console.log('Airtable API response:', responseText.substring(0, 200) + '...');
+            
             if (!response.ok) {
-                const errorData = await response.json();
-                throw new Error(`Airtable API error: ${errorData.error?.message || response.statusText}`);
+                let errorMessage = 'Unknown error';
+                try {
+                    const errorData = JSON.parse(responseText);
+                    errorMessage = errorData.error?.message || response.statusText;
+                } catch (e) {
+                    errorMessage = responseText || response.statusText;
+                }
+                throw new Error(`Airtable API error: ${errorMessage}`);
             }
 
-            return await response.json();
+            return JSON.parse(responseText);
         } catch (error) {
             console.error('Error getting data from Airtable:', error);
+            
+            // Check if it's a CORS error
+            if (error.message.includes('CORS') || error.message.includes('Cross-Origin')) {
+                console.error('CORS error detected. Try using a CORS proxy or server-side implementation.');
+            }
+            
             throw error;
         }
     }
 
     // Process CSV data for upload
     processCSVForUpload(csvData, type) {
+        console.log(`Processing CSV data for ${type} upload`);
+        console.log('CSV data sample:', csvData.substring(0, 200) + '...');
+        
         // Parse CSV data
         const lines = csvData.split('\n');
         const headers = lines[0].split(',').map(header => 
             header.trim().replace(/^"(.*)"$/, '$1')  // Remove quotes if present
         );
+        
+        console.log('CSV headers:', headers);
         
         const records = [];
         
@@ -124,7 +171,7 @@ class AirtableClient {
             
             const values = this.parseCSVLine(lines[i]);
             if (values.length !== headers.length) {
-                console.warn(`Skipping line ${i+1}: column count mismatch`);
+                console.warn(`Skipping line ${i+1}: column count mismatch (expected ${headers.length}, got ${values.length})`);
                 continue;
             }
             
@@ -136,6 +183,7 @@ class AirtableClient {
             records.push(record);
         }
         
+        console.log(`Processed ${records.length} records from CSV`);
         return records;
     }
     

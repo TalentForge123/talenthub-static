@@ -128,6 +128,41 @@
             color: #dc3545;
             margin-top: 1rem;
         }
+        
+        .softr-banner {
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border-left: 5px solid var(--accent);
+        }
+        
+        .softr-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        
+        .softr-link:hover {
+            color: #e55a2b;
+            text-decoration: underline;
+        }
+        
+        .softr-button {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        
+        .softr-button:hover {
+            background-color: #e55a2b;
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 <body>
@@ -147,7 +182,7 @@
                         <a class="nav-link" href="#upload">Data Upload</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#dashboard">Dashboard</a>
+                        <a class="nav-link softr-link" href="https://erick39226.preview.softr.app/" target="_blank">Full Platform</a>
                     </li>
                 </ul>
             </div>
@@ -161,7 +196,7 @@
             <p class="lead mb-5">AI-Powered Talent Intelligence for Manufacturing Leaders</p>
             <div class="d-grid gap-2 d-md-block">
                 <a href="#upload" class="btn btn-primary btn-lg px-4 me-md-2">Upload Your Data</a>
-                <a href="#dashboard" class="btn btn-outline-light btn-lg px-4">Access Dashboard</a>
+                <a href="https://erick39226.preview.softr.app/" target="_blank" class="btn btn-outline-light btn-lg px-4">Access Full Platform</a>
             </div>
         </div>
     </section>
@@ -190,6 +225,23 @@
                     </div>
                     <h3>Workforce Simulation</h3>
                     <p>Test talent strategies in a virtual environment before implementing them in your organization.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Softr Platform Banner -->
+    <section class="py-3">
+        <div class="container">
+            <div class="softr-banner">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h4>Access the Full TalentForge Platform</h4>
+                        <p class="mb-0">For complete talent management features, use our full platform with advanced analytics, dashboards, and reporting.</p>
+                    </div>
+                    <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                        <a href="https://erick39226.preview.softr.app/" target="_blank" class="btn btn-primary">Go to Full Platform</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -264,6 +316,12 @@
                                             </table>
                                         </div>
                                     </div>
+                                    
+                                    <!-- Softr Alternative -->
+                                    <div class="mt-4 p-3 bg-light rounded">
+                                        <p><strong>Having trouble with the upload?</strong> Use our full platform instead:</p>
+                                        <a href="https://erick39226.preview.softr.app/employee-view" target="_blank" class="btn btn-sm btn-primary">Go to Employee Management</a>
+                                    </div>
                                 </div>
                                 <div class="tab-pane fade" id="job" role="tabpanel">
                                     <div class="upload-area" id="jobUploadArea">
@@ -308,6 +366,12 @@
                                                 </tbody>
                                             </table>
                                         </div>
+                                    </div>
+                                    
+                                    <!-- Softr Alternative -->
+                                    <div class="mt-4 p-3 bg-light rounded">
+                                        <p><strong>Having trouble with the upload?</strong> Use our full platform instead:</p>
+                                        <a href="https://erick39226.preview.softr.app/admin-view" target="_blank" class="btn btn-sm btn-primary">Go to Job Management</a>
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="candidate" role="tabpanel">
@@ -354,6 +418,12 @@
                                             </table>
                                         </div>
                                     </div>
+                                    
+                                    <!-- Softr Alternative -->
+                                    <div class="mt-4 p-3 bg-light rounded">
+                                        <p><strong>Having trouble with the upload?</strong> Use our full platform instead:</p>
+                                        <a href="https://erick39226.preview.softr.app/candidate-landing-page" target="_blank" class="btn btn-sm btn-primary">Go to Candidate Management</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -369,16 +439,17 @@
             <div class="row justify-content-center">
                 <div class="col-md-8 text-center mb-5">
                     <h2>Access Your Dashboard</h2>
-                    <p class="lead">View your talent analytics and insights through our interactive dashboard.</p>
+                    <p class="lead">View your talent analytics and insights in our comprehensive dashboard.</p>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card">
                         <div class="card-body p-4 text-center">
-                            <h3 class="mb-4">Your TalentForge Dashboard is Ready</h3>
-                            <p>Access your interactive talent intelligence dashboard to view insights, predictions, and recommendations.</p>
-                            <a href="#" class="btn btn-primary btn-lg mt-3">Launch Dashboard</a>
+                            <i class="fas fa-chart-bar fa-4x mb-4 text-primary"></i>
+                            <h3 class="mb-4">Talent Intelligence Dashboard</h3>
+                            <p>Access your full dashboard with talent analytics, predictive insights, and strategic recommendations.</p>
+                            <a href="https://erick39226.preview.softr.app/manager-dashboard-copy" target="_blank" class="btn btn-primary btn-lg mt-3">Go to Dashboard</a>
                         </div>
                     </div>
                 </div>
@@ -387,25 +458,26 @@
     </section>
 
     <!-- Footer -->
-    <footer class="mt-5">
+    <footer>
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-4 mb-md-0">
                     <h4>TalentForge</h4>
                     <p>Transforming manufacturing talent management through AI-powered intelligence.</p>
                 </div>
-<div class="col-md-4 mb-4 mb-md-0">
-    <h4>Contact</h4>
-    <p>Email: info@talentforge.com</p>
-</div>
-<div class="col-md-4">
-    <h4>Team</h4>
-    <div class="d-flex">
-        <a href="https://www.linkedin.com/in/lsevcik/" target="_blank" class="me-3 text-white"><i class="fab fa-linkedin fa-lg"></i> Lukas Sevcik</a>
-    </div>
-    <div class="d-flex mt-2">
-        <a href="https://www.linkedin.com/in/david-rosenthal-26185/" target="_blank" class="me-3 text-white"><i class="fab fa-linkedin fa-lg"></i> David Rosenthal</a>
-    </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h4>Contact</h4>
+                    <p>Email: info@talentforge.com</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>Team</h4>
+                    <div class="d-flex">
+                        <a href="https://www.linkedin.com/in/lsevcik/" target="_blank" class="me-3 text-white"><i class="fab fa-linkedin fa-lg"></i> Lukas Sevcik</a>
+                    </div>
+                    <div class="d-flex mt-2">
+                        <a href="https://www.linkedin.com/in/david-rosenthal-26185/" target="_blank" class="me-3 text-white"><i class="fab fa-linkedin fa-lg"></i> David Rosenthal</a>
+                    </div>
+                </div>
             </div>
             <div class="row mt-4">
                 <div class="col-12 text-center">
@@ -415,11 +487,9 @@
         </div>
     </footer>
 
-    <!-- Bootstrap JS -->
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Airtable Integration -->
     <script src="airtable-integration.js"></script>
-    <!-- Main Script -->
     <script src="script.js"></script>
 </body>
 </html>
